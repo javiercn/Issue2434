@@ -1,0 +1,16 @@
+﻿@page "/"
+@inject ExampleJsInterop ExampleJsInterop
+
+<PageTitle>Home</PageTitle>
+
+<button @onclick="@Prompt" >Prompt</button>
+<p>Message: @message</p>
+
+@code {
+    string message = "";
+
+    async Task Prompt()
+    {
+        message = await ExampleJsInterop.Prompt("Hello from JavaScript! What is your message?");
+    }
+}
